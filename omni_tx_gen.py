@@ -16,14 +16,14 @@ def get_len(data):
         ctr += 1
     return ctr
 
-def get_nulls(min, data):
+def get_zero(min, data):
     nulls_len = min - get_len(str(data))
     nulls = ''
     for i in range(nulls_len):
         nulls += '0'
     return nulls
 
-hex_data = omni + simple_send + get_nulls(8, token_id) + token_id + get_nulls(16, amount) + amount
+hex_data = omni + simple_send + get_zero(8, token_id) + token_id + get_zero(16, amount) + amount
 
 if get_len(hex_data) != 40:
     print('ERROR: incorrect value')
